@@ -35,7 +35,7 @@ function App() {
   const handleSearch = async (query) => {
     console.log(query);
     try {
-      const response = await fetch(`https://my-blog-app-mvi.onrender.com/fileupload/search/` + query, {
+      const response = await fetch(`https://my-blog-app-mvi.onrender.com/api/fileupload/search/` + query, {
         credentials: 'include',
       });
       const results = await response.json();
@@ -86,7 +86,7 @@ function App() {
     try {
       // Make an API call to update the access level in the database
       const response = await axios.put(
-        `https://my-blog-app-mvi.onrender.com/update-access-level/${fileId}`,
+        `https://my-blog-app-mvi.onrender.com/api/update-access-level/${fileId}`,
         {
           accesslevel: newAccessLevel,
         },
@@ -122,7 +122,7 @@ function App() {
   }, []);
 
   const getPdf = async () => {
-    const result = await axios.get("https://my-blog-app-mvi.onrender.com/get-files");
+    const result = await axios.get("https://my-blog-app-mvi.onrender.com/api/get-files");
     console.log(result.data.data);
     setallFiles(result.data.data);
    
@@ -143,7 +143,7 @@ function App() {
     }
     if (userInfo?.id !== undefined) {
       try {
-        const result = await axios.post("https://my-blog-app-mvi.onrender.com/upload-files", formData, {
+        const result = await axios.post("https://my-blog-app-mvi.onrender.com/api/upload-files", formData, {
           headers: { "Content-Type": "multipart/form-data" },
           withCredentials: true,
         });
@@ -161,14 +161,14 @@ function App() {
   };
 
   const showPdf = (pdf) => {
-    window.open(`https://my-blog-app-mvi.onrender.com/files/${pdf}`, "_blank", "noreferrer");
+    window.open(`https://my-blog-app-mvi.onrender.com/api/files/${pdf}`, "_blank", "noreferrer");
   };
 
   const deletePdf = async (pdf) => {
     getPdf();
     console.log(pdf);
     try {
-      const result = await axios.get(`https://my-blog-app-mvi.onrender.com/delete/${pdf}`);
+      const result = await axios.get(`https://my-blog-app-mvi.onrender.com/api/delete/${pdf}`);
       console.log(result);
 
       if (result.data.status === "ok") {

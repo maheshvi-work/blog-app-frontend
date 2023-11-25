@@ -6,7 +6,7 @@ export default function DeletePost() {
   const [redirect, setRedirect] = useState(false);
 
   const handleDelete = async () => {
-    const response = await fetch(`https://my-blog-app-mvi.onrender.com/delete/${id}`, {
+    const response = await fetch(`https://my-blog-app-mvi.onrender.com/api/delete/${id}`, {
       method: 'DELETE',
       credentials: 'include',
     });
