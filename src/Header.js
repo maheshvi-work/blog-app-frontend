@@ -13,6 +13,10 @@ export default function Header() {
 
     fetch('https://my-blog-app-mvi.onrender.com/api/profile', {
       credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        
+      },
     }).then((response) => {
       response.json().then((userInfo) => {
         setUserInfo(userInfo);
