@@ -17,7 +17,7 @@ export default function CreatePost() {
         data.set('file', files[0]);
         ev.preventDefault();
         console.log(files);
-        const response = await fetch('http://localhost:4001/post',{
+        const response = await fetch('https://my-blog-app-mvi.onrender.com/post',{
             method:'POST',
             body:data,
             credentials: 'include',

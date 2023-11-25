@@ -17,7 +17,7 @@ function App() {
   const { id } = useParams();
   const { userInfo } = useContext(UserContext);
   useEffect(() => {
-    fetch('http://localhost:4001/get-files/' + id).then(response => {
+    fetch('https://my-blog-app-mvi.onrender.com/get-files/' + id).then(response => {
         response.json().then(postFile => {
             setTitle(postFile.title);
             setContent(postFile.content);
@@ -41,7 +41,7 @@ function App() {
     if (files?.[0]) {
       data.set('file', files?.[0]);
     }
-    const response = await fetch('http://localhost:4001/file-edit', {
+    const response = await fetch('https://my-blog-app-mvi.onrender.com/file-edit', {
       method: 'PUT',
       body: data,
       credentials: 'include',

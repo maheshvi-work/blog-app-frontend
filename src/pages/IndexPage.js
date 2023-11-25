@@ -13,7 +13,7 @@ export default function IndexPage() {
   const handleSearch = async (query) => {
     console.log(query);
     try {
-      const response = await fetch(`http://localhost:4001/post/search/` + query, {
+      const response = await fetch(`https://my-blog-app-mvi.onrender.com/post/search/` + query, {
         credentials: 'include',
       });
       const results = await response.json();
@@ -40,7 +40,7 @@ export default function IndexPage() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:4001/post').then(response => {
+    fetch('https://my-blog-app-mvi.onrender.com/post').then(response => {
       response.json().then(posts => {
         setPosts(posts);
         console.log(posts);
