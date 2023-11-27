@@ -58,7 +58,7 @@ function App() {
             <FileUpload />
           } />
           <Route path={'/edit-upload/:id'} element={
-            <EditUpload/>
+            <EditUpload />
           } />
 
 

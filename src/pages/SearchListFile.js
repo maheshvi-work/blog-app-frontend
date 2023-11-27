@@ -39,7 +39,7 @@ export default function SearchList({searchResults,handleSearch,searchQuery, upda
     try {
       // Make an API call to update the access level in the database
       const response = await axios.put(
-        `https://my-blog-app-mvi.onrender.com/update-access-level/${selectedFile}`,
+        `http://localhost:4001/update-access-level/${selectedFile}`,
         {
           accesslevel: newAccessLevel,
         },
@@ -60,7 +60,7 @@ export default function SearchList({searchResults,handleSearch,searchQuery, upda
     }
   };
   const getPdf = async () => {
-    const result = await axios.get("https://my-blog-app-mvi.onrender.com/get-files");
+    const result = await axios.get("http://localhost:4001/get-files");
     console.log(result.data.data);
     setallFiles(result.data.data);
     if (result.data.data && result.data.data.length > 0) {
@@ -69,14 +69,14 @@ export default function SearchList({searchResults,handleSearch,searchQuery, upda
     }
   };
   const showPdf = (pdf) => {
-    window.open(`https://my-blog-app-mvi.onrender.com/files/${pdf}`, "_blank", "noreferrer");
+    window.open(`http://localhost:4001/files/${pdf}`, "_blank", "noreferrer");
   };
 
   const deletePdf = async (pdf) => {
     getPdf();
     console.log(pdf);
     try {
-      const result = await axios.get(`https://my-blog-app-mvi.onrender.com/delete/${pdf}`);
+      const result = await axios.get(`http://localhost:4001/delete/${pdf}`);
       console.log(result);
 
       if (result.data.status === "ok") {

@@ -17,7 +17,7 @@ export default function PostPage() {
     const { id } = useParams();
     useEffect(() => {
 
-        fetch(`https://my-blog-app-mvi.onrender.com/api/post/${id}`).then(response => {
+        fetch(`http://localhost:4001/api/post/${id}`).then(response => {
             response.json().then(postInfo => {
                 setPostInfo(postInfo);
 
@@ -56,7 +56,7 @@ export default function PostPage() {
 
 
 
-        <div className="image"><img src={`https://my-blog-app-mvi.onrender.com/api/${postInfo.cover}`} alt="" /> </div>
+        <div className="image"><img src={`http://localhost:4001/api/${postInfo.cover}`} alt="" /> </div>
         
 
         <div className='ql-snow' >

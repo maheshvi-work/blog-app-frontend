@@ -11,7 +11,7 @@ export default function Header() {
 
   useEffect(() => {
 
-    fetch('https://my-blog-app-mvi.onrender.com/api/profile', {
+    fetch('http://localhost:4001/api/profile', {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ export default function Header() {
   }, [isDarkMode]);
 
   function logout() {
-    fetch('https://my-blog-app-mvi.onrender.com/api/logout', {
+    fetch('http://localhost:4001/api/logout', {
       credentials: 'include',
       method: 'GET',
     });
