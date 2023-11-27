@@ -161,7 +161,7 @@ function App() {
   };
 
   const showPdf = (pdf) => {
-    window.open(`https://my-blog-app-mvi.onrender.com/api/files/${pdf}`, "_blank", "noreferrer");
+    window.open(`https://my-blog-app-mvi.onrender.com/files/${pdf}`, "_blank", "noreferrer");
   };
 
   const deletePdf = async (pdf) => {
