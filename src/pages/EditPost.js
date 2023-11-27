@@ -14,7 +14,7 @@ export default function EditPost() {
     const [cover, setCover] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:4001/api/post/' + id).then(response => {
+        fetch('https://my-blog-app-mvi.onrender.com/api/post/' + id).then(response => {
             response.json().then(postInfo => {
                 setTitle(postInfo.title);
                 setContent(postInfo.content);
@@ -33,7 +33,7 @@ export default function EditPost() {
         if (files?.[0]) {
           data.set('file', files?.[0]);
         }
-        const response = await fetch('http://localhost:4001/api/post', {
+        const response = await fetch('https://my-blog-app-mvi.onrender.com/api/post', {
           method: 'PUT',
           body: data,
           credentials: 'include',
